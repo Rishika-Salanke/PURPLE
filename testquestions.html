@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Question and Answer Page</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  body{
+  
+  background:#f1cdf0 ;
+ 
+}
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  .question {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 10px;
+  }
+  .answer-form {
+    margin-top: 20px;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Question and Answer Page</h1>
+
+  <!-- Question Form -->
+  <form id="questionForm">
+    <label for="question">Enter your question:</label><br>
+    <input type="text" id="question" name="question" required><br>
+    <button type="submit">Submit Question</button>
+  </form>
+
+  <!-- Question List -->
+  <div id="questionList"></div>
+</div>
+
+<script>
+  // Function to handle form submission
+  document.getElementById("questionForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    // Get the question input value
+    var questionInput = document.getElementById("question").value;
+
+    // Create a new question element
+    var questionElement = document.createElement("div");
+    questionElement.classList.add("question");
+    questionElement.textContent = questionInput;
+
+    // Append the question to the question list
+    document.getElementById("questionList").appendChild(questionElement);
+
+    // Clear the question input
+    document.getElementById("question").value = "";
+  });
+</script>
+
+</body>
+</html>
